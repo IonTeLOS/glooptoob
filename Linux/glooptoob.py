@@ -210,7 +210,7 @@ class MainWindow(QMainWindow):
         folder = "~/Downloads/GloopToob/"
         download_folder = os.path.expanduser(folder)
         print("Opening media download folder >> " + download_folder)
-        os.system("gio open " + download_folder)
+        os.system("xdg-open " + download_folder)
      
     def donate_timer(self):
         self.sBar.showMessage('Donate to support app developer')
@@ -248,7 +248,7 @@ if __name__ == "__main__":
         print(f"Downloading audio (first search result): {first_result.title}")
         webbrowser.open('https://www.youtube.com/results?search_query=' + args.search)
         YouTube(first_result.watch_url).streams.filter(only_audio=True).first().download('/home/' + username + '/Downloads/GloopToob')
-        os.system("gio open /home/" + username + "/Downloads/GloopToob")
+        os.system("xdg-open /home/" + username + "/Downloads/GloopToob")
         print('Download finished')
         sys.exit(0)
     elif args.search:
@@ -258,7 +258,7 @@ if __name__ == "__main__":
         print(f"Downloading video (first search result): {first_result.title}")
         webbrowser.open('https://www.youtube.com/results?search_query=' + args.search)
         YouTube(first_result.watch_url).streams.filter(type='video', progressive=True, file_extension='mp4').order_by('resolution').desc().first().download('/home/' + username + '/Downloads/GloopToob')
-        os.system("gio open /home/" + username + "/Downloads/GloopToob")
+        os.system("xdg-open /home/" + username + "/Downloads/GloopToob")
         print('Download finished')
         sys.exit(0)
     elif args.audio and args.url:
