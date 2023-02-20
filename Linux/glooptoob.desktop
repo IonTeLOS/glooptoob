@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Icon=glooptoob.png
+DBusActivatable=true
+Name=GloopToob
+GenericName=Media Downloader
+Comment=Search and download from YouTube
+Exec=glooptoob
+Terminal=false
+Categories=Network;Video;TV;
+Keywords=web;internet;YouTube;download;multimedia;video;songs;playlist;audio
+StartupNotify=true
+StartupWMClass=glooptoob
+MimeType=
+Path=
