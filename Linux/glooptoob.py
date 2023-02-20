@@ -61,6 +61,7 @@ class MainWindow(QMainWindow):
         
         if getattr(sys, 'frozen', False):
             application_path = os.path.dirname(os.path.realpath(sys.executable))
+            lbin = os.path.expandvars('/home/$USER/.local/bin/')
             destination = os.path.expandvars('/home/$USER/.local/bin/glooptoob')
             idest = os.path.expandvars('/home/$USER/.local/share/icons/')
             ddest = os.path.expandvars('/home/$USER/.local/share/applications/')
@@ -68,6 +69,9 @@ class MainWindow(QMainWindow):
             if not mydestination.is_file():
                 icon = get_path("gt.png ")
                 desktopfile = get_path("glooptoob.desktop ")
+                os.system("mkdir " + lbin)
+                os.system("mkdir " + idest)
+                os.system("mkdir " + ddest)
                 os.system("mv " + icon + idest + "glooptoob.png")
                 os.system("cp " + desktopfile + ddest)
                 InstallDialog()
